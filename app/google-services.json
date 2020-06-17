@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "289015687007",
+    "firebase_url": "https://contadorvirtual2-bedfe.firebaseio.com",
+    "project_id": "contadorvirtual2-bedfe",
+    "storage_bucket": "contadorvirtual2-bedfe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289015687007:android:9c36f2eddacb6dc70038ea",
+        "android_client_info": {
+          "package_name": "com.wrios.contadorvirtual2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289015687007-r4mnh1fadhogf8v1olm85j8abtcfe11t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wrios.contadorvirtual2",
+            "certificate_hash": "fa0df4cb9bfc51a13ce7c17890c75ee449834387"
+          }
+        },
+        {
+          "client_id": "289015687007-dlh6oj9085voe51c6cp6ej1d4c8lg7f0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs_XZoqtGYO7nb4ZTpnrCDdvjoKvQrueQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289015687007-dlh6oj9085voe51c6cp6ej1d4c8lg7f0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
