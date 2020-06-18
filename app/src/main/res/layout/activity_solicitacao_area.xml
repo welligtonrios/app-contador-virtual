@@ -3,13 +3,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="match_parent"
     android:layout_weight="1"
+    android:orientation="vertical"
     tools:context=".activity.SolicitacaoAreaActivity">
 
     <!--adicionando a toolbar criada -->
 
     <include layout="@layout/toolbar"></include>
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Selecionar"
+        android:textAlignment="center"
+        android:textColor="@color/azulCon"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/idFiscal"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/fical" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fiscal"
+        android:textAlignment="center"
+        android:textColor="@color/larajaCon"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/idPessoal"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/pessoal" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pessoal"
+        android:textAlignment="center"
+        android:textColor="@color/larajaCon"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/idContabil"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/contabil" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contábil"
+        android:textAlignment="center"
+        android:textColor="@color/larajaCon"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/gestao" />
+
+    <CheckedTextView
+        android:id="@+id/idGestaoFinanceira"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gestão Financeira"
+        android:textAlignment="center"
+        android:textColor="@color/larajaCon"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView26"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/outros" />
+
+    <CheckedTextView
+        android:id="@+id/idOutros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Outros"
+        android:textAlignment="center"
+        android:textColor="@color/larajaCon"
+        android:textStyle="bold" />
 
 
 </LinearLayout>

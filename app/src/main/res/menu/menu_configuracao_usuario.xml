@@ -5,7 +5,7 @@
     <item android:id="@+id/menu_configuracao"
 
         android:title="Configurações"
-        app:showAsAction="collapseActionView"/>
+        app:showAsAction="always"/>
 
     <item android:id="@+id/menu_cliente"
         android:title="Cliente"/>

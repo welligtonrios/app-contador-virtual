@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.wrios.contadorvirtual2.R;
 import com.wrios.contadorvirtual2.helper.ConfiguracaoFirebase;
-import com.wrios.contadorvirtual2.model.UsuarioCliente;
+import com.wrios.contadorvirtual2.model_domain.UsuarioCliente;
 
 public class AutentinticacaoActivity extends AppCompatActivity {
 

@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.wrios.contadorvirtual2.R;
 import com.wrios.contadorvirtual2.helper.ConfiguracaoFirebase;
-import com.wrios.contadorvirtual2.model.UsuarioCliente;
+import com.wrios.contadorvirtual2.model_domain.UsuarioCliente;
 
 public class CadastroActivity extends AppCompatActivity {
 
