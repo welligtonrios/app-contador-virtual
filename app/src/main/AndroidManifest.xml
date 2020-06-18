@@ -9,14 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activity.CadastrarSolicitacaoActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".activity.SolicitacaoAreaActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.wrios.contadorvirtual2.activity.SolicitacaoAreaActivity" />
-        </activity>
+        <activity android:name=".activity.Cadastrar_SolicitacaoActivity"></activity>
         <activity android:name=".activity.SolicitacaoAreaActivity" />
         <activity android:name=".activity.CadastroActivity" />
         <activity android:name=".activity.AutentinticacaoActivity" />

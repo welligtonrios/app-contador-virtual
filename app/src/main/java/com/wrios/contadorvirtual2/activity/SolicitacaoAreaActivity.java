@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.wrios.contadorvirtual2.R;
@@ -19,10 +22,14 @@ public class SolicitacaoAreaActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     private FirebaseAuth autenticacao;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicitacao_area);
+
 
         //configurando toolbar
          this.toolbar = findViewById(R.id.toolbarPrincial);
@@ -72,6 +79,18 @@ public class SolicitacaoAreaActivity extends AppCompatActivity {
                 }catch (Exception e){
                     e.printStackTrace();
                 }
+        }
+
+        //abrindo chamado para setor fiscal
+
+        public void carregarSetorFiscal(View view){
+
+
+
+            Intent cadastrarSoli = new Intent(SolicitacaoAreaActivity.this,Cadastrar_SolicitacaoActivity.class);
+            startActivity(cadastrarSoli);
+            //finish();
+
         }
 
 }
