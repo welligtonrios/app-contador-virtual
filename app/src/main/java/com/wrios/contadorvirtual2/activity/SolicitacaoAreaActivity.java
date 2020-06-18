@@ -10,8 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.wrios.contadorvirtual2.R;
@@ -22,7 +20,6 @@ public class SolicitacaoAreaActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     private FirebaseAuth autenticacao;
-
 
 
     @Override
@@ -82,15 +79,20 @@ public class SolicitacaoAreaActivity extends AppCompatActivity {
         }
 
         //abrindo chamado para setor fiscal
-
         public void carregarSetorFiscal(View view){
-
-
-
-            Intent cadastrarSoli = new Intent(SolicitacaoAreaActivity.this,Cadastrar_SolicitacaoActivity.class);
+            Intent cadastrarSoli = new Intent(SolicitacaoAreaActivity.this, Cadastrar_SolicitacaoFiscalActivity.class);
             startActivity(cadastrarSoli);
-            //finish();
+            finish();
 
         }
+
+        //abrindo chamado para setor Pessoal
+        public void carregarSetorPessoal(View view){
+            Intent cadastrarSoli = new Intent(SolicitacaoAreaActivity.this, Cadastrar_solicitacao_SetorPessoalActivity.class);
+            startActivity(cadastrarSoli);
+            finish();
+
+        }
+
 
 }

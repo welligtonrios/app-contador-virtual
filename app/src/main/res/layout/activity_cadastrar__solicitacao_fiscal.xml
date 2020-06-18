@@ -7,7 +7,7 @@
     android:layout_marginTop="10dp"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context=".activity.Cadastrar_SolicitacaoActivity">
+    tools:context=".activity.Cadastrar_SolicitacaoFiscalActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
             android:layout_height="42dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:onClick="voltarAreaSolicitacao"
             app:srcCompat="?attr/actionModeCloseDrawable" />
 
         <TextView
@@ -29,7 +30,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="Setor"
+            android:text="Fiscal"
             android:padding="5dp"
             android:textSize="24sp" />
 
