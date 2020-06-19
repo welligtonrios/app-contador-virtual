@@ -19,6 +19,12 @@ public class ConfiguracaoFirebase {
         return autenticacao.getCurrentUser().getUid();
     }
 
+    //retorna idUsusairo
+        public static  String getIdUsuario(){
+        FirebaseAuth autenticacao = getReferenciaFireAutenticacao();
+                return autenticacao.getCurrentUser().getUid();
+        }
+
 
 
     //retorna a referencia DatabaseReference

@@ -43,45 +43,53 @@ public class Cadastrar_SolicitacaoFiscalActivity extends AppCompatActivity {
         Permissoes.validarPermissoes(permissoes,this,1);
 
     }
-
-
-
-    //salvar solicitacao
-    public void salvarSolicitcao(){
-
-        
-
-    }
+    
 
     private SolicitacaoSetorFiscal configirasolicitacao(){
-        String setor = ideTextSetor.getText().toString();
-        String declaracao_Faturamento = idBoxDeclaracao.getText().toString() ;
-        String das_Nacional = idBoxDas.getText().toString();
-        String recalculoimposto = idBoxRecalculoImporto.getText().toString();
-        String outros = idBoxOtros.getText().toString();
-        String descricao = idTextDescricao.getText().toString();
 
+        //passar os valores pro objeto
         SolicitacaoSetorFiscal solicitacao = new SolicitacaoSetorFiscal();
 
+        String setor = ideTextSetor.getText().toString();
+
+        //se o box foi selesionado o meu objeto solicitacao recebe ele
+        if (idBoxDeclaracao.isChecked()){
+            String declaracao_Faturamento = idBoxDeclaracao.getText().toString();
+            solicitacao.setDeclarcaoFaturamento(declaracao_Faturamento);
+        }
+
+        if (idBoxDas.isChecked()){
+            String das_Nacional = idBoxDas.getText().toString();
+            solicitacao.setDasSimplesNacional(das_Nacional);
+        }
+
+        if (idBoxRecalculoImporto.isChecked()){
+            String recalculoimposto = idBoxRecalculoImporto.getText().toString();
+            solicitacao.setRecalculoImposto(recalculoimposto);
+        }
+
+        if (idBoxOtros.isChecked()){
+            String outros = idBoxOtros.getText().toString();
+            solicitacao.setOutros(outros);
+        }
+
+        String descricao = idTextDescricao.getText().toString();
+
         solicitacao.setSetor(setor);
-        solicitacao.setDeclarcaoFaturamento(declaracao_Faturamento);
-        solicitacao.setDasSimplesNacional(das_Nacional);
-        solicitacao.setRecalculoImposto(recalculoimposto);
-        solicitacao.setOutros(outros);
         solicitacao.setDescricao(descricao);
 
         return solicitacao;
     }
 
 
-
+    //salvar dados
     //validar dados solicitacao
     public void validadarDadosSolicitacao(View view){
 
-          SolicitacaoSetorFiscal solicitacao = configirasolicitacao();  //chamar esse metodo para acionar a descricao e assim validar o preenchimento
+          SolicitacaoSetorFiscal solicitacao = configirasolicitacao();  //chamar esse metodo para acionar a descricao e assim validar o preenchimento e tambem passa todos os dados recuperados
 
         if (!solicitacao.getDescricao().isEmpty()){
-                salvarSolicitcao(); // se a descricao for preenchida eu salvo a solicitcao
+                solicitacao.salvar(); // se a descricao for preenchida eu salvo a solicitcao
         }else{
             Toast.makeText(Cadastrar_SolicitacaoFiscalActivity.this,"É necessário uma descrição para a solicitação!",
                     Toast.LENGTH_SHORT).show();

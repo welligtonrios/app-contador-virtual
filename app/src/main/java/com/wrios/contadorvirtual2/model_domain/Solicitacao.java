@@ -5,7 +5,7 @@ import java.util.Random;
 public class Solicitacao {
 
     private String setor;
-    private UsuarioCliente usuarioCliente;
+    private String usuarioCliente;
     private Boolean staus;
     private String idsolicitacao;
     private String descricao;
@@ -13,7 +13,7 @@ public class Solicitacao {
     public Solicitacao() {
     }
 
-    public Solicitacao(String setor, UsuarioCliente usuarioCliente, String idsolicitacao, String descricao, Boolean staus) {
+    public Solicitacao(String setor, String usuarioCliente, String idsolicitacao, String descricao, Boolean staus) {
         this.setor = setor;
         this.usuarioCliente = usuarioCliente;
         this.staus = staus;
@@ -30,11 +30,11 @@ public class Solicitacao {
         this.setor = setor;
     }
 
-    public UsuarioCliente getUsuarioCliente() {
+    public String getUsuarioCliente() {
         return usuarioCliente;
     }
 
-    public void setUsuarioCliente(UsuarioCliente usuarioCliente) {
+    public void setUsuarioCliente(String usuarioCliente) {
         this.usuarioCliente = usuarioCliente;
     }
 

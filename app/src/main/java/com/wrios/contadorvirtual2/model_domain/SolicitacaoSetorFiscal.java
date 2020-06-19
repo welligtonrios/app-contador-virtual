@@ -1,5 +1,8 @@
 package com.wrios.contadorvirtual2.model_domain;
 
+import com.google.firebase.database.DatabaseReference;
+import com.wrios.contadorvirtual2.helper.ConfiguracaoFirebase;
+
 public class SolicitacaoSetorFiscal extends Solicitacao {
 
     private String declarcaoFaturamento;
@@ -8,9 +11,12 @@ public class SolicitacaoSetorFiscal extends Solicitacao {
     private String outros;
 
     public SolicitacaoSetorFiscal() {
+        DatabaseReference solicitacaoRef = ConfiguracaoFirebase.getReferenciaFirebaseDatabase().child("minhas_solicitacoes");//referencia para campo minhas solicitacoes
+        this.setIdsolicitacao(solicitacaoRef.push().getKey());//qunado eu criar uma instancia desse objeto vai ser gerado um id
+
     }
 
-    public SolicitacaoSetorFiscal(String setor, UsuarioCliente usuarioCliente, String idsolicitacao, String descricao, Boolean staus, String declarcaoFaturamento, String dasSimplesNacional, String recalculoImposto, String outros) {
+    public SolicitacaoSetorFiscal(String setor, String usuarioCliente, String idsolicitacao, String descricao, Boolean staus, String declarcaoFaturamento, String dasSimplesNacional, String recalculoImposto, String outros) {
         super(setor, usuarioCliente, idsolicitacao, descricao, staus);
         this.declarcaoFaturamento = declarcaoFaturamento;
         this.dasSimplesNacional = dasSimplesNacional;
@@ -49,5 +55,16 @@ public class SolicitacaoSetorFiscal extends Solicitacao {
 
     public void setOutros(String outros) {
         this.outros = outros;
+    }
+
+    public void salvar(){
+
+        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
+        DatabaseReference solicitacaoRef = ConfiguracaoFirebase.getReferenciaFirebaseDatabase().child("minhas_solicitacoes");//referencia para campo minhas solicitacoes
+
+        solicitacaoRef.child(idUsuario).
+        child(getIdsolicitacao()).
+        setValue(this);
+
     }
 }
