@@ -7,7 +7,6 @@ public class Solicitacao {
     private String setor;
     private UsuarioCliente usuarioCliente;
     private String idsolicitacao;
-    private String descricao;
     private Boolean staus;
 
     public Solicitacao() {
@@ -17,7 +16,7 @@ public class Solicitacao {
         this.setor = setor;
         this.usuarioCliente = usuarioCliente;
         this.idsolicitacao = idsolicitacao;
-        this.descricao = descricao;
+
         this.staus = staus;
     }
 
@@ -36,14 +35,6 @@ public class Solicitacao {
 
     public void setUsuarioCliente(UsuarioCliente usuarioCliente) {
         this.usuarioCliente = usuarioCliente;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public Boolean getStaus() {
