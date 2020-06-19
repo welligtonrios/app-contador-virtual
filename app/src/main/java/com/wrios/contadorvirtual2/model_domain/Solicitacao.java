@@ -6,7 +6,6 @@ public class Solicitacao {
 
     private String setor;
     private UsuarioCliente usuarioCliente;
-    private String idsolicitacao;
     private Boolean staus;
 
     public Solicitacao() {
@@ -15,8 +14,6 @@ public class Solicitacao {
     public Solicitacao(String setor, UsuarioCliente usuarioCliente, String idsolicitacao, String descricao, Boolean staus) {
         this.setor = setor;
         this.usuarioCliente = usuarioCliente;
-        this.idsolicitacao = idsolicitacao;
-
         this.staus = staus;
     }
 
