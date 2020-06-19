@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Cadastrar_solicitacao_SetorPessoalActivity"></activity>
+        <activity
+            android:name=".activity.Minhas_SolicitacoesActivity"
+            android:label="@string/title_activity_minhas__solicitacoes"
+            android:parentActivityName=".activity.SolicitacaoAreaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wrios.contadorvirtual2.activity.SolicitacaoAreaActivity" />
+        </activity>
+        <activity android:name=".activity.Cadastrar_solicitacao_SetorPessoalActivity" />
         <activity android:name=".activity.Cadastrar_SolicitacaoFiscalActivity" />
         <activity android:name=".activity.SolicitacaoAreaActivity" />
         <activity android:name=".activity.CadastroActivity" />

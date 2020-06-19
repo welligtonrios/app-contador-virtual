@@ -56,7 +56,9 @@ public class SolicitacaoAreaActivity extends AppCompatActivity {
         //tramento as opções
             switch (item.getItemId()){
                 case R.id.menu_cliente: break;
-                case R.id.menu_solicitações: break;
+                case R.id.menu_solicitações: //mostrar as solicitacoes
+                    startActivity(new Intent(getApplicationContext(),Minhas_SolicitacoesActivity.class));
+                    break;
                 case  R.id.menu_geral: break;
                 case R.id.menu_conta: break;
                 case R.id.menu_privacidade_: break;
