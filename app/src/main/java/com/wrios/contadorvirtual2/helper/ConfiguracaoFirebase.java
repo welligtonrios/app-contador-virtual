@@ -19,7 +19,7 @@ public class ConfiguracaoFirebase {
         return autenticacao.getCurrentUser().getUid();
     }
 
-    //retorna idUsusairo
+    //retorna idUsusairo logado
         public static  String getIdUsuario(){
         FirebaseAuth autenticacao = getReferenciaFireAutenticacao();
                 return autenticacao.getCurrentUser().getUid();

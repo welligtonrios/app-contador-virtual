@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_margin="8dp"
+        android:orientation="horizontal"
+        android:background="@color/fundoAzulClaro"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/idimageSolicitacao"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/padrao" />
+
+        <LinearLayout
+            android:layout_width="108dp"
+            android:layout_height="92dp"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textIdSolicitacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="ID "
+                android:textColor="@color/azulCon"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textIDnomeCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="5dp"
+                android:text="Cliente"
+                android:textColor="@color/azulCon"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/idbuttonRemover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="Remover"
+                android:background="@drawable/botao_borda_solid"
+                android:textColor="#3CA3FB"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/texIdStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:text="Status"
+                android:textColor="@color/azulCon"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

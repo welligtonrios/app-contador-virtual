@@ -47,29 +47,35 @@ public class Cadastrar_SolicitacaoFiscalActivity extends AppCompatActivity {
 
     private SolicitacaoSetorFiscal configirasolicitacao(){
 
+        String declaracao_Faturamento;
+        String das_Nacional;
+        String recalculoimposto;
+        String outros;
         //passar os valores pro objeto
         SolicitacaoSetorFiscal solicitacao = new SolicitacaoSetorFiscal();
 
         String setor = ideTextSetor.getText().toString();
 
         //se o box foi selesionado o meu objeto solicitacao recebe ele
+        //Declaracao de faturamento
         if (idBoxDeclaracao.isChecked()){
-            String declaracao_Faturamento = idBoxDeclaracao.getText().toString();
+            declaracao_Faturamento = idBoxDeclaracao.getText().toString();
             solicitacao.setDeclarcaoFaturamento(declaracao_Faturamento);
         }
-
+        //Das simples Nacional
         if (idBoxDas.isChecked()){
-            String das_Nacional = idBoxDas.getText().toString();
+            das_Nacional = idBoxDas.getText().toString();
             solicitacao.setDasSimplesNacional(das_Nacional);
         }
 
+        //recalculo de impostos
         if (idBoxRecalculoImporto.isChecked()){
-            String recalculoimposto = idBoxRecalculoImporto.getText().toString();
+             recalculoimposto = idBoxRecalculoImporto.getText().toString();
             solicitacao.setRecalculoImposto(recalculoimposto);
         }
-
+        //outros
         if (idBoxOtros.isChecked()){
-            String outros = idBoxOtros.getText().toString();
+             outros = idBoxOtros.getText().toString();
             solicitacao.setOutros(outros);
         }
 
@@ -85,33 +91,35 @@ public class Cadastrar_SolicitacaoFiscalActivity extends AppCompatActivity {
     //SALVAR dados
     //validar dados solicitacao
     public void validadarDadosSolicitacao(View view){
-            //dialog para aparecer salvando a solicitacao
-            alertDialog = new SpotsDialog.Builder().
-                    setContext(this)
-                    .setMessage("Salvando solicitacao")
-                    .setCancelable(false)
-                    .build();
-             alertDialog.show();
 
           SolicitacaoSetorFiscal solicitacao = configirasolicitacao();  //chamar esse metodo para acionar a descricao e assim validar o preenchimento e tambem passa todos os dados recuperados
 
+        // dialog para aparecer salvando a solicitacao
+        alertDialog = new SpotsDialog.Builder().
+                setContext(this)
+                .setMessage("Salvando solicitação")
+                .setCancelable(false)
+                .build();
+
+
         if (!solicitacao.getDescricao().isEmpty()){
-                solicitacao.salvar(); // se a descricao for preenchida eu salvo a solicitcao
+                alertDialog.show();
                 alertDialog.dismiss(); // encerrar dialog
+                solicitacao.salvar(); // se a descricao for preenchida eu salvo a solicitcao
+                voltarAreaSolicitacao(view);
                 finish();//encerrar activity
+
         }else{
             Toast.makeText(Cadastrar_SolicitacaoFiscalActivity.this,"É necessário uma descrição para a solicitação!",
                     Toast.LENGTH_SHORT).show();
+
         }
     }
 
 
-
-
-
     //evento voltar para Area de solicitacao
     public void voltarAreaSolicitacao(View view){
-        Intent cadastrarSoli = new Intent(Cadastrar_SolicitacaoFiscalActivity.this, SolicitacaoAreaActivity.class);
+        Intent cadastrarSoli = new Intent(Cadastrar_SolicitacaoFiscalActivity.this, Minhas_SolicitacoesActivity.class);
         startActivity(cadastrarSoli);
     }
 

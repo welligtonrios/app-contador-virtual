@@ -6,5 +6,9 @@
     <color name="larajaCon">#FFF97F00</color>
     <color name="azulCon">#035FAC</color>
     <color name="whiete">#FFFFFF</color>
+    <color name="fundoAzulClaro">#f1f9ff</color>
+    <color name="fundoAzulClaroForteText">#5fb4fc</color>
+    <color name="bordaBotaoClaro">#bce0fd</color>
+
 
 </resources>
