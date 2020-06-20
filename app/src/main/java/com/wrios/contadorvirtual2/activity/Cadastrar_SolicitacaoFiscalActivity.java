@@ -1,13 +1,10 @@
 package com.wrios.contadorvirtual2.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
-import android.content.DialogInterface;
+import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -19,11 +16,14 @@ import com.wrios.contadorvirtual2.R;
 import com.wrios.contadorvirtual2.helper.Permissoes;
 import com.wrios.contadorvirtual2.model_domain.SolicitacaoSetorFiscal;
 
+import dmax.dialog.SpotsDialog;
+
 public class Cadastrar_SolicitacaoFiscalActivity extends AppCompatActivity {
 
     private CheckBox idBoxDeclaracao,idBoxDas,idBoxRecalculoImporto,idBoxOtros;
     private EditText idTextDescricao;
     private TextView ideTextSetor;
+    private AlertDialog alertDialog;
 
     //array de permissoes
     private String[] permissoes = new String[]{
@@ -43,7 +43,7 @@ public class Cadastrar_SolicitacaoFiscalActivity extends AppCompatActivity {
         Permissoes.validarPermissoes(permissoes,this,1);
 
     }
-    
+
 
     private SolicitacaoSetorFiscal configirasolicitacao(){
 
@@ -82,14 +82,23 @@ public class Cadastrar_SolicitacaoFiscalActivity extends AppCompatActivity {
     }
 
 
-    //salvar dados
+    //SALVAR dados
     //validar dados solicitacao
     public void validadarDadosSolicitacao(View view){
+            //dialog para aparecer salvando a solicitacao
+            alertDialog = new SpotsDialog.Builder().
+                    setContext(this)
+                    .setMessage("Salvando solicitacao")
+                    .setCancelable(false)
+                    .build();
+             alertDialog.show();
 
           SolicitacaoSetorFiscal solicitacao = configirasolicitacao();  //chamar esse metodo para acionar a descricao e assim validar o preenchimento e tambem passa todos os dados recuperados
 
         if (!solicitacao.getDescricao().isEmpty()){
                 solicitacao.salvar(); // se a descricao for preenchida eu salvo a solicitcao
+                alertDialog.dismiss(); // encerrar dialog
+                finish();//encerrar activity
         }else{
             Toast.makeText(Cadastrar_SolicitacaoFiscalActivity.this,"É necessário uma descrição para a solicitação!",
                     Toast.LENGTH_SHORT).show();

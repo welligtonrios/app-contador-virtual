@@ -1,0 +1,53 @@
+[33mcommit 7cceb11cbc655b00dd507474b663df1651120439[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Fri Jun 19 17:13:15 2020 -0300
+
+    Classe cadastro solicitacao criado e configurado no firebase
+
+[33mcommit 505c1dd0983fde16d5eec8be0d54178f3da49537[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Fri Jun 19 15:54:36 2020 -0300
+
+    criada a classe SolicitacaoSetorFiscal e configuracao da classe cadastrarSolicitcaoFiscal no metodo configuracaoSolicitacao
+
+[33mcommit a98e2ffaac4c8a5fe7ff0c8c83428a713522b105[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Fri Jun 19 13:03:09 2020 -0300
+
+    configurado validacao dos campos solicitacao
+
+[33mcommit e1af7fd8ab7e31e07e29908e31a9e891d0778e3a[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Thu Jun 18 22:56:02 2020 -0300
+
+    Craicao da classe Permissoes e configuracoes de permissao de storage no app
+
+[33mcommit 1a5ef3cc3c3cb9c182d64f98068df02563921a48[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Thu Jun 18 22:12:23 2020 -0300
+
+    criada activity minha solicitacoes
+
+[33mcommit 5674ab3f234a00d9932205349230db084c05b7b6[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Thu Jun 18 19:03:02 2020 -0300
+
+    Modificado a classe de cadastro de setor para cada area do setor, criado cadastro setor pessoal
+
+[33mcommit 22abd68012a4e0431ee4e663bbebd96ea33bc9ea[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Thu Jun 18 12:15:45 2020 -0300
+
+    configuracoes na activity de Area de solicitacao e criacao da activity solicitar cadastro
+
+[33mcommit 6ccfaad7cf61c71ef99c5a18ddb18d74c703998d[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Wed Jun 17 23:39:35 2020 -0300
+
+    criada a activity de Area de solicitacao e configurada a classe Solicitacao
+
+[33mcommit c2db9aee5f6f2ab43055e3bee14e58dcf4c7419e[m
+Author: Welligton Rios <wriosfaculdade@gmail.com>
+Date:   Wed Jun 17 19:22:16 2020 -0300
+
+    Configuracao do projeto  com o firebase
