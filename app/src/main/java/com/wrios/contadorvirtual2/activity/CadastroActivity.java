@@ -88,7 +88,7 @@ public class CadastroActivity extends AppCompatActivity {
      *metodo responsavel por cadastrar o usuarioCliente com os parametros necessarios
      * e fazer validações ao fazer cadastro
      */
-    public void cadastrarUsuario(UsuarioCliente usuarioCliente){
+    public void cadastrarUsuario(final UsuarioCliente usuarioCliente){
 
         //mostrar o progressbar quando o usuario clicar em salvar
         progressBar.setVisibility(View.VISIBLE);
@@ -99,20 +99,37 @@ public class CadastroActivity extends AppCompatActivity {
         autenticacao.createUserWithEmailAndPassword(
                 usuarioCliente.getEmail(),
                 usuarioCliente.getSenha()
+
         ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() { // verficar se foi feita com sucesso o cadastro
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()){
 
-                    progressBar.setVisibility(View.GONE);//escondendo o progressBar pois deu certo o cadastro
-                    Toast.makeText(CadastroActivity.this,"Cadastrado com sucesso",
-                            Toast.LENGTH_SHORT).show();
 
-                    //redireciona para a activity de login
-                    Intent iLogin = new  Intent(CadastroActivity.this,AutentinticacaoActivity.class);
-                    startActivity(iLogin);
-                    finish();
+                    //tratar erro
+                    try {
+
+                        progressBar.setVisibility(View.GONE);//escondendo o progressBar pois deu certo o cadastro
+
+                        //salvar dados no firebase
+                        String idUsuario = task.getResult().getUser().getUid(); // recupera o id do usuario
+                        usuarioCliente.setId(idUsuario);
+                        usuarioCliente.salvar();
+
+                        Toast.makeText(CadastroActivity.this,"Cadastrado com sucesso",
+                                Toast.LENGTH_SHORT).show();
+
+                        //redireciona para a activity de login
+                        Intent iLogin = new  Intent(CadastroActivity.this,AutentinticacaoActivity.class);
+                        startActivity(iLogin);
+                        finish();
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+
                 }else{
 
                     progressBar.setVisibility(View.GONE); //para de carregar pois precisa tratar o erro

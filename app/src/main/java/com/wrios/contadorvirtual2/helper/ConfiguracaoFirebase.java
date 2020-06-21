@@ -26,7 +26,6 @@ public class ConfiguracaoFirebase {
         }
 
 
-
     //retorna a referencia DatabaseReference
     public static DatabaseReference getReferenciaFirebaseDatabase() {
         if (referenciaFirebaseDatabase == null){

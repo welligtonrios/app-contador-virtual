@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.AutentinticacaoActivity">
+    tools:context=".activity.AutenticaContadorctivity">
+
 
 
     <LinearLayout
@@ -35,16 +36,16 @@
 
 
     <EditText
-        android:id="@+id/idTextCNPJEmailEntrar"
+        android:id="@+id/campo_NomeEntrarContador"
         android:layout_width="354dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:ems="10"
-        android:hint="CNPJ/E-mail"
+        android:hint="Nome"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/idTextSenhaEntrar"
+        android:id="@+id/idTextSenhaEntrarContador"
         android:layout_width="354dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -53,7 +54,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/idbuttonEntrar"
+        android:id="@+id/idbuttonEntrarContador"
         android:layout_width="354dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
@@ -64,23 +65,15 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <CheckedTextView
-        android:id="@+id/idEntrarContador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="28dp"
-        android:onClick="entrarComoContador"
-        android:text="Entrar como contador"
-        android:textColor="#2196F3" />
-
     <ProgressBar
-        android:id="@+id/idprogressBarEntrar"
+        android:id="@+id/idprogressBarEntrarContador"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+
         />
+
 
 
 </LinearLayout>

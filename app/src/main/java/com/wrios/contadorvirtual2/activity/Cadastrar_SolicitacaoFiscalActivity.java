@@ -119,7 +119,7 @@ public class Cadastrar_SolicitacaoFiscalActivity extends AppCompatActivity {
 
     //evento voltar para Area de solicitacao
     public void voltarAreaSolicitacao(View view){
-        Intent cadastrarSoli = new Intent(Cadastrar_SolicitacaoFiscalActivity.this, Minhas_SolicitacoesActivity.class);
+        Intent cadastrarSoli = new Intent(Cadastrar_SolicitacaoFiscalActivity.this, SolicitacaoAreaActivity.class);
         startActivity(cadastrarSoli);
     }
 
@@ -132,7 +132,6 @@ public class Cadastrar_SolicitacaoFiscalActivity extends AppCompatActivity {
         idBoxOtros = findViewById(R.id.idBoxOutros);
         idTextDescricao = findViewById(R.id.idTextDescricao);
     }
-
 
 
 

@@ -1,5 +1,9 @@
 package com.wrios.contadorvirtual2.model_domain;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
+import com.wrios.contadorvirtual2.helper.ConfiguracaoFirebase;
+
 public class UsuarioCliente {
 
 
@@ -42,6 +46,7 @@ public class UsuarioCliente {
         this.email = email;
     }
 
+    @Exclude //para nao salvar a senha no banco somente na auteticacao
     public String getSenha() {
         return senha;
     }
@@ -50,6 +55,12 @@ public class UsuarioCliente {
         this.senha = senha;
     }
 
+
+    public void salvar(){
+        DatabaseReference databaseReference = ConfiguracaoFirebase.getReferenciaFirebaseDatabase();
+        DatabaseReference usuarioRef = databaseReference.child("Clientes").child(getId());
+        usuarioRef.setValue(this);
+    }
 
 
 

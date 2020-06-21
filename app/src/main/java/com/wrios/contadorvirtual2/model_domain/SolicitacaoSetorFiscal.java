@@ -16,7 +16,7 @@ public class SolicitacaoSetorFiscal extends Solicitacao {
 
     }
 
-    public SolicitacaoSetorFiscal(String setor, String usuarioCliente, String idsolicitacao, String descricao, Boolean staus, String declarcaoFaturamento, String dasSimplesNacional, String recalculoImposto, String outros) {
+    public SolicitacaoSetorFiscal(String setor, UsuarioCliente usuarioCliente, String idsolicitacao, String descricao, Boolean staus, String declarcaoFaturamento, String dasSimplesNacional, String recalculoImposto, String outros) {
         super(setor, usuarioCliente, idsolicitacao, descricao, staus);
         this.declarcaoFaturamento = declarcaoFaturamento;
         this.dasSimplesNacional = dasSimplesNacional;
@@ -60,11 +60,24 @@ public class SolicitacaoSetorFiscal extends Solicitacao {
     public void salvar(){
 
         String idUsuario = ConfiguracaoFirebase.getIdUsuario();
-        DatabaseReference solicitacaoRef = ConfiguracaoFirebase.getReferenciaFirebaseDatabase().child("minhas_solicitacoes");//referencia para campo minhas solicitacoes
+        DatabaseReference solicitacaoRef = ConfiguracaoFirebase.getReferenciaFirebaseDatabase().
+                child("minhas_solicitacoes");//referencia para campo minhas solicitacoes
 
         solicitacaoRef.child(idUsuario).
         child(getIdsolicitacao()).
         setValue(this);
 
+    }
+
+    //remover solicitacao
+    public  void remover(){
+        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
+        DatabaseReference solicitacaoRef = ConfiguracaoFirebase.getReferenciaFirebaseDatabase().
+                //referencia para campo minhas solicitacoes
+                child("minhas_solicitacoes")
+                .child(idUsuario)
+                .child(getIdsolicitacao());
+
+        solicitacaoRef.removeValue();
     }
 }

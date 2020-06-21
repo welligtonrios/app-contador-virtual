@@ -12,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wrios.contadorvirtual2.R;
+import com.wrios.contadorvirtual2.model_domain.Solicitacao;
 import com.wrios.contadorvirtual2.model_domain.SolicitacaoSetorFiscal;
+import com.wrios.contadorvirtual2.model_domain.UsuarioCliente;
 
 import java.util.List;
 
@@ -21,10 +23,13 @@ public class AdapterSolicitacoesFiscal extends RecyclerView.Adapter<AdapterSolic
     private List<SolicitacaoSetorFiscal> solicitacoesFiscais;
     private Context context;
 
+
     public AdapterSolicitacoesFiscal(List<SolicitacaoSetorFiscal> solicitacoesFiscais, Context context) {
         this.solicitacoesFiscais = solicitacoesFiscais;
         this.context = context;
     }
+
+
 
     @NonNull
     @Override
@@ -36,14 +41,19 @@ public class AdapterSolicitacoesFiscal extends RecyclerView.Adapter<AdapterSolic
         return new MyViewHolder(solicitacao);
     }
 
+
     //metodo que vai passar os valores recuperados
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
                 SolicitacaoSetorFiscal solicitacao = solicitacoesFiscais.get(position);
-                holder.texIdsolicitacao.setText(solicitacao.getIdsolicitacao()); // passando para o text ID o id da solicitacao
-                holder.nomeCliente.setText(solicitacao.getUsuarioCliente());
+               //holder.texIdsolicitacao.setText(solicitacao.getIdsolicitacao()); // passando para o text ID o id da solicitacao
+                //holder.idCliente.setText(solicitacao.);
+
     }
-    //quandidade de itens
+
+
+    //quantidade de itens
     @Override
     public int getItemCount() {
         return solicitacoesFiscais.size();
@@ -52,7 +62,7 @@ public class AdapterSolicitacoesFiscal extends RecyclerView.Adapter<AdapterSolic
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView texIdsolicitacao;
-        TextView nomeCliente;
+        TextView idCliente;
         TextView status;
         ImageView imagem;
         Button abrir, remover;
@@ -61,12 +71,10 @@ public class AdapterSolicitacoesFiscal extends RecyclerView.Adapter<AdapterSolic
             super(itemView); //para mim pegar os itens de outra View eu preciso do itemView "super da classe RecyclerView.ViewHolder"
 
             texIdsolicitacao = itemView.findViewById(R.id.textIdSolicitacao);
-            nomeCliente = itemView.findViewById(R.id.textIDnomeCliente);
+            idCliente = itemView.findViewById(R.id.textIDnomeCliente);
             status = itemView.findViewById(R.id.texIdStatus);
             //imagem = itemView.findViewById(R.id.idimageSolicitacao);
-           // remover = itemView.findViewById(R.id.idbuttonRemover);
-
-
+            remover = itemView.findViewById(R.id.idbuttonRemover);
 
         }
 

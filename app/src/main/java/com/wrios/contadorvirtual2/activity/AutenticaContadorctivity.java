@@ -15,92 +15,81 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.wrios.contadorvirtual2.R;
 import com.wrios.contadorvirtual2.helper.ConfiguracaoFirebase;
 import com.wrios.contadorvirtual2.model_domain.UsuarioCliente;
+import com.wrios.contadorvirtual2.model_domain.UsuarioContador;
 
-public class AutentinticacaoActivity extends AppCompatActivity {
+public class AutenticaContadorctivity extends AppCompatActivity {
+
 
     private Button botaoEntrar;
-    private EditText campo_CNPJ_email,campoSenha;
+    private EditText campoNome,campoSenha;
     private ProgressBar progressBarLogin;
+
+    private UsuarioContador usuarioContador;
+
+    private DatabaseReference autenticao;
 
     //receperando referencia firebaseAuth
     private FirebaseAuth autenticacao;
 
-    private UsuarioCliente usuarioCliente;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_autentinticacao);
+        setContentView(R.layout.activity_autentica_contadorctivity);
 
-        verificarUsuarioLogado();
-
-        //metodo inicializar componetnes
+        //incialicar componentes
         inicializarComponentes();
 
         //fazer login de usuario
         progressBarLogin.setVisibility(View.GONE);
-        botaoEntrar.setOnClickListener(new View.OnClickListener() {
 
+        botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ///recuperando os campos CNPJ/email e senha
-                String cnpj_email = campo_CNPJ_email.getText().toString();
-                String senhaLogim = campoSenha.getText().toString();
-
+                //recuperar os campos
+                String nome = campoNome.getText().toString();
+                String senha = campoSenha.getText().toString();
                 //testar se nao estao vazios
-                if (!cnpj_email.isEmpty()){
+                if (!nome.isEmpty()){
 
-                    //if para o campo senha
-                    if (!senhaLogim.isEmpty()){
 
-                        usuarioCliente = new UsuarioCliente();
-                        usuarioCliente.setEmail(cnpj_email);
-                        usuarioCliente.setSenha(senhaLogim);
-                        //metodo que valida login
-                        validarLogin(usuarioCliente);
+                    if(!senha.isEmpty()){
 
-                    }else{
-                        Toast.makeText(AutentinticacaoActivity.this,"Preencha o campo CNPJ/Email",
+                        usuarioContador = new UsuarioContador();
+                        usuarioContador.setNome(nome);
+                       usuarioContador.setSenhaContador(senha);
+
+                        //validarLogin
+                        validarLogimContador(usuarioContador);
+
+                    }else {
+                        Toast.makeText(AutenticaContadorctivity.this,"Preencha o campo Senha",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }else{
-
-                    Toast.makeText(AutentinticacaoActivity.this,"Preencha o campo Senha",
+                    Toast.makeText(AutenticaContadorctivity.this,"Preencha o campo Nome",
                             Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
 
-
-
-    }
-    /*
-     * verificar se o usuario já esta logado*/
-    public void verificarUsuarioLogado(){
-        autenticacao = ConfiguracaoFirebase.getReferenciaFireAutenticacao();
-        if(autenticacao.getCurrentUser() != null){
-            //instancio a activity de destino
-            startActivity(new Intent(getApplicationContext(), SolicitacaoAreaActivity.class));
-            finish();//fecha a activity atual
         }
-    }
 
     /*
      * metodo que irá validar o login de usuario
      * */
-    public void validarLogin(UsuarioCliente usuarioCliente){
+    public void validarLogimContador(UsuarioContador usuarioContador){
         progressBarLogin.setVisibility(View.VISIBLE); // acionada o progressbar
         autenticacao = ConfiguracaoFirebase.getReferenciaFireAutenticacao();//passa para o atributo autenticacao a referencia da classe de conf firebase junto com o metodo de autenticacao
 
         autenticacao.signInWithEmailAndPassword(
-                usuarioCliente.getEmail(),
-                usuarioCliente.getSenha()
+                usuarioContador.getNome(),
+                usuarioContador.getsenhaContador()
         ).addOnCompleteListener(new OnCompleteListener<AuthResult>() { // verificar se foi autenticado
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -111,7 +100,7 @@ public class AutentinticacaoActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(),SolicitacaoAreaActivity.class));
                     finish();//fecha a activity atual
                 }else{
-                    Toast.makeText(AutentinticacaoActivity.this,
+                    Toast.makeText(AutenticaContadorctivity.this,
                             "Erro ao fazer login",
                             Toast.LENGTH_SHORT).show();
                     progressBarLogin.setVisibility(View.GONE);
@@ -122,17 +111,13 @@ public class AutentinticacaoActivity extends AppCompatActivity {
         });
     }
 
-    public void entrarComoContador(View view){
-        startActivity(new Intent(getApplicationContext(),AutenticaContadorctivity.class));
-        finish();
-    }
-
-
 
     public void inicializarComponentes(){
-        botaoEntrar = findViewById(R.id.idbuttonEntrar);
-        campo_CNPJ_email = findViewById(R.id.idTextCNPJEmailEntrar);
-        campoSenha = findViewById(R.id.idTextSenhaEntrar);
-        progressBarLogin = findViewById(R.id.idprogressBarEntrar);
+        botaoEntrar = findViewById(R.id.idbuttonEntrarContador);
+        campoNome = findViewById(R.id.campo_NomeEntrarContador);
+        campoSenha = findViewById(R.id.idTextSenhaEntrarContador);
+        progressBarLogin = findViewById(R.id.idprogressBarEntrarContador);
     }
+
+
 }
